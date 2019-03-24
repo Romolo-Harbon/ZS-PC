@@ -12,7 +12,7 @@ function ChangeSta(uri,ActTy){
         var uriCheckA = uri.split('StaChange');
         var uriCheck = uriCheckA[0] + 'FromTypeCheck'
         
-//      console.log(Mes)
+        // console.log(uriCheck);
 //      console.log(TabName_Data)
         //check type
         $.ajax({
@@ -25,8 +25,9 @@ function ChangeSta(uri,ActTy){
         	    TabName:TabName_Data
         	},
         	success:function(data){
+                // console.log(data.TypSta);
         	    if(data.TypSta == 'allow'){
-//      	        console.log(uri)
+     	        // console.log(uri)
         	        //change status
                     $.ajax({
                         type:"post",
@@ -43,6 +44,7 @@ function ChangeSta(uri,ActTy){
                                 if(!(ActTy == 'draf' || ActTy == 'pack')){
                                     tabMesAll.ajax.reload();
                                 }else{
+                                    
 //                                  var node = TreeMes.getSelected();
 //                                  if (!node) return;
 //                                  TreeMes.reloadNode(node, '');
@@ -64,6 +66,7 @@ function ChangeSta(uri,ActTy){
 					                        alert('出现错误，错误类型：'+e)
 					                    }
 					                })
+
                                 }
                             }
                             else{

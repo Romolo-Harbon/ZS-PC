@@ -18,7 +18,8 @@ function FormGetMes(uri){
 //show form mes
 function showFormMes(MesPack){
     
-    //fill change model
+    //fill change modeld
+    // $('#ModelName').attr('value',MesPack['base'][0][''])
     $('#ChaFormName').attr('value',MesPack['base'][0]['TabNam'])
     $('#ChaFormName').val(MesPack['base'][0]['TabNam'])
     $('#ChaFormType').text(MesPack['type'])
@@ -27,9 +28,9 @@ function showFormMes(MesPack){
     $('#ChaTabEls').text(MesPack['base'][0]['TabEls'])
     
     //show baseMes
-//  $('#ModelName').text(MesPack['base'][0]['TabNam'])
+    $('#ModelName').text(MesPack['base'][0]['TabMNa'])
     $('#FormName').text(MesPack['base'][0]['TabNam'])
-    $('#FormPage').text(MesPack['base'][0]['TabNam'])
+    $('#FormPage').text(MesPack['base'][0]['page'])
     $('#FormType').text(MesPack['type'])
     $('#ReTime').text(MesPack['base'][0]['TabCTm'])
     $('#DLtime').text(MesPack['base'][0]['TabDTm'])

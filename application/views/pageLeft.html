@@ -227,3 +227,19 @@
             <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
     </div>
 </div>
+
+<script type="text/javascript">
+    //用户注册管理信息只有管理员可以看到，其他账号不可
+        //设置数据,保存可以访问的方法
+    private $allowMethod=array('test','index');
+
+    //所有方法执行前,都会自动执行_remap方法,调用方法不存在$allowMethod中就执行exit()
+    public function _remap($method,$var){
+        if (in_array($method,$allowMethod)) {
+            $this->$method($var);
+        }else{
+            exit('非法访问');
+        }
+    }   
+
+</script>

@@ -81,14 +81,14 @@
         			    <!--Action Button Beg-->
         			    <div class="col-lg-5">
         			        <button class="btn btn-primary NoSelTabType" id="OpenShut">展开</button>
-        			        <!--<input class="input-elm" id="CheckTreeDom"/>
-        			        <button class="btn btn-primary" id="CheckTreeDomAct">查找</button>-->
+        			        <!-- <input class="input-elm" id="CheckTreeDom"/> -->
+        			        <!-- <button class="btn btn-primary" id="CheckTreeDomAct">查找</button> -->
         			    </div>
         			    <div class="col-lg-7">
                             <input id="formId" hidden="hidden"/>
                             <button class="btn btn-primary NoSelTabType" id="UpLoad" onclick="ChangeSta(StaChange+'/UpLoad/draf','draf')">提交</button>
                             <button class="btn btn-primary NoSelTabType" id="PackUp" onclick="ChangeSta(StaChange+'/PackUp/draf','draf')">归集</button>
-                            <button class="btn btn-primary NoSelTabType" id="Delete" onclick="HardWroking()">删除</button><!--ChangeSta(StaChange+'/Delete/draf','draf')-->
+                            <!-- <button class="btn btn-primary NoSelTabType" id="Delete" onclick="HardWroking()">删除</button> --><!--ChangeSta(StaChange+'/Delete/draf','draf')-->
                             <button class="btn btn-primary NoSelTabType" id="printOutDraf" href="#" >浏览</button>
                             <button class="btn btn-primary" href="#modal-EditTabMes" role="button" data-toggle="modal">属性设置</button>
                             <!--<button class="btn btn-primary" onclick="selectMes()"></button>-->
@@ -163,10 +163,12 @@
 		<script type="text/javascript">
 		    var dataUri = sessionStorage.getItem('ModleId');
 		    projectId = sessionStorage.getItem('projectId')
+            
 		    var StaChange = "<?php echo site_url('MesContro/StaChange') ?>"
 		    var TreeMes = []
 		    var MesArray = "" //树目录的数据
 		    var TreeUrl = "<?php echo site_url('MesContro/GetTreeNode') ?>"+'/'+projectId;
+
 			jQuery(function($) {
 			    /*
 			     * tree INI
@@ -219,6 +221,7 @@
                         $('#formId').attr('value',note.data.nodeId)
                         var MesShow = "<?php echo site_url('MesContro/ShowFormMes') ?>"+'/'+note.data.nodeId
 //                      console.log(MesShow)
+
 						//基本属性
                         $.ajax({
                         	type:"post",
@@ -227,6 +230,7 @@
                         	dataType:'json',
                         	success:function(data){
                         	    //clear old mes
+                                $('#ModelName').text()
                                 $('#ChaFormName').attr('value','')
                                 $('#ChaFormName').val('')
                                 $('#ChaFormType').text('')
